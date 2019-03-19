@@ -26,15 +26,19 @@ git clone https://github.com/tahardi/cs50-dev.git cs50-dev && cd cs50-dev && sud
 <img src="./media/setup-osx-2.png" alt="setup-osx-1"
 	title="Setup OSX"/>
 
-3. You will most likely be prompted to install XCode development tools (this is to use git). Proceed with the installation. Afterwards, use the up arrow and enter keys to re-run the command from step 2.
+3. You will most likely be prompted to install XCode development tools (this is to use git). Proceed with the installation.
 
 **Insert picture showing xcode installation**
 
-4. You will be prompted for your *computer's* password so that the installation script has the necessary permissions for downloading software. Enter your password (the characters will not show up on the terminal, but they are in fact being read).
+4. Afterwards, use the up arrow and enter keys to re-run the command from step 2. Enter the email and password for your **github** account. **NOTE: The characters in the password field will not show up, but they are in fact being read**.
+
+**Insert picture showing this step**
+
+5. You will be prompted for your **computer's** password so that the installation script has the necessary permissions for downloading software on your computer.
 
 **Insert picture showing password prompt**
 
-5. After entering your password the installation script should run and install all of the necessary development tools. If successful, you should see something similar to the following output:
+6. After entering your password the installation script should run and install all of the necessary development tools. If successful, you should see something similar to the following output:
 
 <img src="./media/setup-osx-4.png" alt="setup-osx-4"
 	title="Setup OSX"/>
