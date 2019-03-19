@@ -39,17 +39,17 @@ You will be using your VM to compile and test your lab assignments. Assignments 
 1. Click on the GitHub Classroom assignment link. You will be redirected to a page like the one pictured below.
 
 <img src="./media/download-lab-1.png" alt="download-lab-1"
-	title="Download Lab" width="900" height="699" />
+	title="Download Lab"/>
 
 2. After clicking accept, GitHub Classroom will create a repository to hold the code for your assignment. Click the URL following "Your assignment has been created here:" to view your new assignment repo. 
 
 <img src="./media/download-lab-2.png" alt="download-lab-2"
-	title="Download Lab" width="900" height="699" />
+	title="Download Lab"/>
 
 3. On your repo page, copy the HTTPS URL from the quick setup section.
 
 <img src="./media/download-lab-3.png" alt="download-lab-3"
-	title="Download Lab" width="900" height="699" />
+	title="Download Lab"/>
 
 4. Open **Terminal** and navigate to your `cs50-dev` folder. Once you are in the `cs50-dev` folder, clone your assignment repo. Use the following command to do this (**NOTE: Remember to replace URL with the URL you copied from your assignment page**). Afterwards, you can use `ls` to check that your assignment repo was cloned to thee `cs50-dev` folder.
 
@@ -58,7 +58,7 @@ cd ~/cs50-dev && git clone URL
 ```
 
 <img src="./media/download-lab-5.png" alt="download-lab-5"
-	title="Download Lab" width="900" height="638" />
+	title="Download Lab"/>
 
 # Using the Virtual Machine
 ## Powering On/Off the VM
@@ -69,7 +69,7 @@ cd ~/cs50-dev && vagrant up
 ```
 
 <img src="./media/power-vm-1.png" alt="power-vm-1"
-	title="Power VM" width="900" height="525" />
+	title="Power VM"/>
 
 Once the VM has been powered on, you can log into the machine with the following command:
 
@@ -78,7 +78,7 @@ vagrant ssh
 ```
 
 <img src="./media/power-vm-2.png" alt="power-vm-2"
-	title="Power VM" width="900" height="525" />
+	title="Power VM"/>
 
 When you are done using the VM you should first logout with the following command:
 
@@ -87,7 +87,7 @@ exit
 ```
 
 <img src="./media/power-vm-3.png" alt="power-vm-3"
-	title="Power VM" width="900" height="525" />
+	title="Power VM"/>
 
 Then shutdown the VM:
 
@@ -96,7 +96,7 @@ vagrant halt
 ```
 
 <img src="./media/power-vm-4.png" alt="power-vm-4"
-	title="Power VM" width="900" height="525" />
+	title="Power VM"/>
 
 ## Writing Code
 After cloning your GitHub Classroom assignment repo, you will want to start writing code and testing it on the VM. Before you do begin, however, it is important to note an interesting characteristic of your `cs50-dev` folder. This folder is shared between the **Host** (your machine) and the **Guest** (your VM). This means that everything in the `cs50-dev` folder is visible on both your machine and the VM, and you can edit files from either machine. Below we describe several different ways for writing code on both your host machine and VM.
@@ -105,18 +105,18 @@ After cloning your GitHub Classroom assignment repo, you will want to start writ
 You can write code on your host machine through a command line editor (e.g., vim, emacs, nano) or using a text editor (e.g., Sublime, Atom, Notepad). If you wish to use a text editor, simply open the file you wish to edit using finder or the command line. Below is an example of opening a file from the command line (in OSX) and editing it in Sublime.
 
 <img src="./media/writing-code-host-text-editor.png" alt="writing-code-host"
-	title="Writing Code Host" width="900" height="400" />
+	title="Writing Code Host"/>
 
 ### Writing Code on Your VM
 You can write code on your VM using a command line editor, but first remember to power on your VM, login, and navigate to yourr assignment repo.
 
 <img src="./media/writing-code-vm-1.png" alt="writing-code-vm-1"
-	title="Writing Code VM" width="900" height="500" />
+	title="Writing Code VM"/>
 	
 Then open the file you wish to edit in your prefered editor.
 
 <img src="./media/writing-code-vm-2.png" alt="writing-code-vm-2"
-	title="Writing Code VM" width="900" height="500" />
+	title="Writing Code VM"/>
 
 ## Compiling and Executing Code
 You will need to make sure that your code compiles and runs on your VM machine. Before compiling your code, to make sure that you have done the following:
