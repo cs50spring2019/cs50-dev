@@ -12,19 +12,24 @@ This repository contains top-level files (i.e. Vagrantfile and bootstraph.sh) fo
 
 # Setup Your Development Environment For OSX
 
-1. Mac users should copy/paste the command shown below into the **terminal** application and press *enter*. This command will 1) download this repository 2) create a CS50 folder 3) and run the bootstrap script for downloading and configuring your virtual machine (VM).
+1. First, create a [github account](https://github.com).
+
+<img src="./media/github-sign-up.png" alt="github-sign-up"
+	title="Github Sign Up"/>
+
+2. Mac users should copy/paste the command shown below into the **terminal** application and press *enter*. This command will 1) download this repository 2) create a CS50 folder 3) and run the bootstrap script for downloading and configuring your virtual machine (VM).
 
 ```
 git clone https://github.com/tahardi/cs50-dev.git cs50-dev && cd cs50-dev && ./osx-bootstrap.sh
 ```
 
 <img src="./media/setup-osx-2.png" alt="setup-osx-1"
-	title="Setup OSX" width="900" height="546" />
+	title="Setup OSX"/>
 
-2. If successful, you should see something similar to the following output:
+3. If successful, you should see something similar to the following output:
 
 <img src="./media/setup-osx-4.png" alt="setup-osx-4"
-	title="Setup OSX" width="900" height="546" />
+	title="Setup OSX"/>
 	
 # Setup Your Development Environment For Windows
 
