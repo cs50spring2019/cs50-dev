@@ -20,13 +20,21 @@ This repository contains top-level files (i.e. Vagrantfile and bootstraph.sh) fo
 2. Mac users should copy/paste the command shown below into the **terminal** application and press *enter*. This command will 1) download this repository 2) create a CS50 folder 3) and run the bootstrap script for downloading and configuring your virtual machine (VM).
 
 ```
-git clone https://github.com/tahardi/cs50-dev.git cs50-dev && cd cs50-dev && ./osx-bootstrap.sh
+git clone https://github.com/tahardi/cs50-dev.git cs50-dev && cd cs50-dev && sudo ./osx-bootstrap.sh
 ```
 
 <img src="./media/setup-osx-2.png" alt="setup-osx-1"
 	title="Setup OSX"/>
 
-3. If successful, you should see something similar to the following output:
+3. You will most likely be prompted to install XCode development tools (this is to use git). Proceed with the installation. Afterwards, use the up arrow and enter keys to re-run the command from step 2.
+
+**Insert picture showing xcode installation**
+
+4. You will be prompted for your *computer's* password so that the installation script has the necessary permissions for downloading software. Enter your password (the characters will not show up on the terminal, but they are in fact being read).
+
+**Insert picture showing password prompt**
+
+5. After entering your password the installation script should run and install all of the necessary development tools. If successful, you should see something similar to the following output:
 
 <img src="./media/setup-osx-4.png" alt="setup-osx-4"
 	title="Setup OSX"/>
