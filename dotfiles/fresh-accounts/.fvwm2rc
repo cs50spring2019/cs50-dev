@@ -1,0 +1,26 @@
+# -*- mode:shell-script -*-
+
+# $Id: .fvwm2rc,v 1.1 1997/06/24 05:15:12 testuser Exp $
+
+# This file is read by fvwm2 (the window manager) at startup.  After
+# editing this file, choose `Restart Fvwm2' from the `Exit Fvwm' menu.
+# Type `man fvwm2' for more info.
+
+# The latest official version of this file is available in ~testuser
+# with earlier versions available under RCS control.
+
+# ----------------------------------------------------------------------
+
+# Source master file.  If you are a power user or control freak, you
+# may want to copy it to this location, i.e.
+#
+#	cp /usr/local/lib/templates/master.fvwm2rc ~/.fvwm2rc
+#
+# If you do this, however, future changes to the master copy will not
+# affect your account.  If you have only minor customizations to make,
+# you can simply add code either before or after sourcing the master
+# file.
+
+Read /usr/local/lib/templates/master.fvwm2rc
+
+# --------------------------------------------------------------------

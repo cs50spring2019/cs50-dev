@@ -1,0 +1,100 @@
+# This file is sourced by bash in every shell.  After editing this
+# file, type `source .bashrc' in any shell which is already open and
+# in which you want the changes to take effect.  For more info type
+# `man bash'.
+
+# The latest official version of this file is available in
+# /usr/local/lib/templates/ with earlier versions available under RCS
+# control.
+
+# --------------------------------------------------------------------
+
+# The path is a list of directories which contain executable programs.
+
+export PATH=$PATH:~/bin:/bin:/usr/bin:/sbin:/usr/sbin
+
+# Define setenv so that bash can understand the ~/.environset file.
+
+function setenv () { export $1="$2"; }
+
+# Load environment variable settings.
+
+source ~/.environset
+
+# --------------------------------------------------------------------
+
+# Make sure the $USER environment variable is set properly.
+
+if [ -z "$USER" ]; then
+    export USER=`id | sed "s/.*uid=[0-9]*(\([a-z]*\)).*/\1/"`	# (")
+fi
+
+# ----------------------------------------------------------------------
+
+# Don't make useless coredump files.  If you want a coredump,
+# say "ulimit -c unlimited" and then cause a segmentation fault.
+
+ulimit -c unlimited 
+
+# --------------------------------------------------------------------
+
+# If running interactively, then:
+if [ "$PS1" ]; then
+
+    # Make reasonable environment
+
+    stty sane dec
+
+    # Set ignoreeof if you don't want EOF as the sole input to the
+    # shell to immediately signal a quit condition.  This only happens
+    # at the start of a line if the line is empty, and you haven't
+    # just deleted a character with C-d.  I turn this on in
+    # ~/.bash_profile so that only login shells have the right to be
+    # obnoxious.
+    ignoreeof=3
+
+    history_control=ignoredups
+
+    # Set auto_resume if you want to resume on "emacs", as well as on
+    # "%emacs".
+    auto_resume=
+
+    # Set notify if you want to be asynchronously notified about
+    # background job completion.
+    notify=
+
+    # Make it so that failed `exec' commands don't flush this shell.
+    no_exit_on_failed_exec=
+
+    command_oriented_history=
+
+    case $TERM in
+	"xterm" | "vs100" | "iris-ansi" | "iris-ansi-net")
+	    PROMPT_COMMAND='echo -n "]0;$USER@$HOST........`pwd`"'
+	    PS1="\n\[[1m\][\h:\W] \!)\[[m\] "
+	    ;;
+
+	"vt100" | "vt220" | "vt320" | "linux")
+	    PS1="\[\n[1m\][\h:\W] \!)\[[m\] "
+	    ;;
+
+	"emacs")
+	    stty -onlcr -echo
+	    ;;
+
+	*)
+	    PS1="\n[\h:\W] \!) "
+	    ;;
+    esac
+
+    FIGNORE=".o:~"
+
+    HISTSIZE=100
+ 
+    umask 0022
+
+fi
+
+unset MAILCHECK
+
+# --------------------------------------------------------------------
