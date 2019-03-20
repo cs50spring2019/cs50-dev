@@ -20,9 +20,9 @@ vagrant up
 vagrant halt
 
 # Configure dotfiles
-cp dotfiles/MacOS/.gitignore_global ~
+cp dotfiles/MacOS/.gitignore_global ~/
 git config --global core.excludesfile ~/.gitignore_global
-cp dotfiles/MacOS/.bash_profile-master ~
-cp dotfiles/MacOS/.bash_profile ~
-cp dotfiles/MacOS/.bashrc-master ~
-cp dotfiles/MacOS/.bashrc ~
+cp dotfiles/MacOS/.bash_profile-master ~/
+cp dotfiles/MacOS/.bash_profile ~/
+cp dotfiles/MacOS/.bashrc-master ~/
+cp dotfiles/MacOS/.bashrc ~/

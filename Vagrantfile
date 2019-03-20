@@ -62,7 +62,7 @@ Vagrant.configure("2") do |config|
     apt-get install autoconf -y > /dev/null
 
     # if you want to run shell scripts, you can also reference those...
-    #/home/vagrant/cs50guest/setup.sh
+    /home/vagrant/cs50-shared/vm-dotfile-setup.sh
 
     echo "All done! Now run: vagrant ssh"
   SHELL
