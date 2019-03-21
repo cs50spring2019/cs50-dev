@@ -64,6 +64,10 @@ Vagrant.configure("2") do |config|
     # if you want to run shell scripts, you can also reference those...
     /home/vagrant/cs50-shared/vm-dotfile-setup.sh
 
+    echo "[core]
+	    mergeoptions = --no-edit" >> /home/vagrant/.gitconfig
+    echo 'export GIT_MERGE_AUTOEDIT=no' >> /home/vagrant/.bashrc
+
     echo "All done! Now run: vagrant ssh"
   SHELL
 end
