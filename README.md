@@ -20,7 +20,7 @@ This repository contains top-level files (i.e. Vagrantfile and bootstraph.sh) fo
 2. Mac users should copy/paste the command shown below into the **terminal** application and press *enter* (⏎). This command will 1) download this repository 2) create a CS50 folder 3) and run the bootstrap script for downloading and configuring your virtual machine (VM).
 
 ```
-git clone https://github.com/tahardi/cs50-dev.git cs50-dev
+git clone https://github.com/cs50spring2019/cs50-dev.git cs50-dev
 ```
 
 <img src="./media/setup-osx-2.png" alt="setup-osx-1"
