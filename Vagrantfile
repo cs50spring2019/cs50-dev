@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
   # Share an additional folder to the guest VM. 
   # The first argument is the path on the host to the actual folder (everything in this folder). 
   # The second argument is the path on the guest where you mount the folder (must be an absolute path). 
-  config.vm.synced_folder ".", "/home/vagrant/cs50-shared", create: true, owner: cs50user, group: cs50user
+  config.vm.synced_folder "./shared", "/home/vagrant/shared", owner: cs50user, group: cs50user
 
   # Provider-specific configuration so you can fine-tune the VM.
   config.vm.provider "virtualbox" do |vb|
@@ -48,22 +48,22 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  # Upload some setup files to help with setup
+  config.vm.provision "file", source: "./setup", destination: "/home/vagrant/setup"
+
   # Enable provisioning with a shell script.
   config.vm.provision "shell", inline: <<-SHELL
     export DEBIAN_FRONTEND=noninteractive
 
+    # Install all the packages needed
     apt-get update > /dev/null
+    xargs apt-get install -y < /home/vagrant/setup/packages &> /dev/null
+    
+    # Move the dot files into the top level
+    mv /home/vagrant/setup/dotfiles/cs50-home/.??* /home/vagrant/ &> /dev/null
 
-    apt-get install wget -y > /dev/null
-    apt-get install git -y > /dev/null
-    apt-get install gcc -y > /dev/null
-    apt-get install valgrind -y > /dev/null
-
-    apt-get install autoconf -y > /dev/null
-
-    # if you want to run shell scripts, you can also reference those...
-    /home/vagrant/cs50-shared/vm-dotfile-setup.sh
-
+    # Cleanup
+    rm -rf /home/vagrant/setup
     echo "All done! Now run: vagrant ssh"
   SHELL
 end

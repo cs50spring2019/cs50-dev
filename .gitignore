@@ -1,6 +1,6 @@
 # Ignore everything
 *
-./.*
+.*
 
 # But not these files...
 !.gitignore
@@ -8,4 +8,5 @@
 !bootstrap.sh
 !README.md
 !media/
-!dotfiles/
+!setup/
+!setup/**

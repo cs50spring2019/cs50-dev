@@ -33,7 +33,7 @@ git clone https://github.com/cs50spring2019/cs50-dev.git cs50-dev
 3. Afterwards, paste the following in Terminal and press *enter* (⏎). Enter the email and password for your **github** account. **NOTE: The characters in the password field will not show up, but they are in fact being read**.
 
 ```
-cd cs50-dev && ./osx-bootstrap.sh
+cd cs50-dev && ./setup/osx-bootstrap.sh
 ```
 
 **Insert picture showing this step**
