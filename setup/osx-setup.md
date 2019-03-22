@@ -5,12 +5,12 @@
 <img src="./media/github-sign-up.png" alt="github-sign-up"
 	title="Github Sign Up"/>
 
-2. Follow [GitHub's guide](https://help.github.com/en/articles/connecting-to-github-with-ssh) for generating a new SSH keey and adding it to your GitHub account. Namely, complete:
+2. Follow [GitHub's guide](https://help.github.com/en/articles/connecting-to-github-with-ssh) for generating a new SSH keey and adding it to your GitHub account. Namely, complete the steps listed below. These require you to open and paste commands into the **Terminal** application, which can be found in `Applications/Utilities` or by using spotlight (`cmd+spacebar`) to search for and open the application.
 
 	- Checking for existing SSH keys
 	- Generating a new SSH key and adding it to the ssh-agent
 	- Adding a new SSH keey to your GitHub account
-2. Open the **Terminal** application. This can be found in `Applications/Utilities` or by using spotlight (`cmd+spacebar`) to search for the application. After opening **Terminal**, copy and paste the below command and press *enter* (⏎) to clone the `cs50-dev` repository.
+2. Open the **Terminal** application. Copy and paste the below command and press *enter* (⏎) to clone the `cs50-dev` repository.
 
 ```
 cd && git clone git@github.com:cs50spring2019/cs50-dev.git cs50-dev
