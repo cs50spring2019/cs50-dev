@@ -1,6 +1,10 @@
+# WARNING: This file will be overwritten if CS50 vagrant is reprovisioned.
+# If you prefer something else, create ~/.gitignore_global.custom
+# then  git config --global core.excludesfile ~/.gitignore_global.custom
+
 # CS50 recommended .gitignore_global file
 # to install it:
-#  cp ~cs50/.gitignore_global ~
+#  cp .gitignore_global ~
 #  git config --global core.excludesfile ~/.gitignore_global
 
 # core dumps
@@ -22,7 +26,7 @@ core
 .DS_Store
 .AppleDouble
 .LSOverride
-Icon
+Icon*
 ._*
 .Spotlight-V*
 .Trashes

@@ -60,11 +60,7 @@ Vagrant.configure("2") do |config|
     apt-get install -y $( grep -v '#' /home/vagrant/setup/packages ) &> /dev/null
     
     echo Move the dot files into the top level
-    mv /home/vagrant/setup/dotfiles/cs50-home/.??* /home/vagrant/ &> /dev/null
-
-    echo "[core]
-	    mergeoptions = --no-edit" >> /home/vagrant/.gitconfig
-    echo 'export GIT_MERGE_AUTOEDIT=no' >> /home/vagrant/.bashrc
+    mv /home/vagrant/setup/dotfiles/cs50-virtualbox/.??* /home/vagrant/
 
     echo Cleanup
     rm -rf /home/vagrant/setup

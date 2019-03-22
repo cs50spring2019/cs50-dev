@@ -1,20 +1,2 @@
-# Object files and libraries
-*.o
-*.a
-
-# Emacs
-*~
-\#*\#
-.\#*
-
-# debugger symbols
-*.dSYM
-
-# MacOS X
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-.Spotlight-V*
-.Trashes
+# for this directory only
+.*~
