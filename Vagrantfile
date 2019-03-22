@@ -78,6 +78,8 @@ Vagrant.configure("2") do |config|
 
   config.trigger.before :destroy do |trigger|
     trigger.warn = "Backing up home folder to cs50-dev/home-backup.tgz"
-    trigger.run_remote = {inline: "cd /home/vagrant && tar --absolute-names --exclude './cs50-dev' -zcvf /vagrant/home-backup.tgz . &> /dev/null"}
+    trigger.run_remote = {
+      inline: "cd /home/vagrant && tar --absolute-names --exclude './cs50-dev' -zcvf /vagrant/home-backup.tgz . &> /dev/null"
+    }
   end
 end
