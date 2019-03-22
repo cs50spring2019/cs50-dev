@@ -8,5 +8,7 @@
 !bootstrap.sh
 !README.md
 !media/
+!dotfiles/
+!dotfiles/**
 !setup/
 !setup/**
