@@ -62,8 +62,22 @@ Vagrant.configure("2") do |config|
     # Move the dot files into the top level
     mv /home/vagrant/setup/dotfiles/cs50-home/.??* /home/vagrant/ &> /dev/null
 
+    apt-get install wget -y > /dev/null
+    apt-get install git -y > /dev/null
+    apt-get install gcc -y > /dev/null
+    apt-get install valgrind -y > /dev/null
+
+    apt-get install autoconf -y > /dev/null
+
+    # if you want to run shell scripts, you can also reference those...
+    /home/vagrant/cs50-shared/vm-dotfile-setup.sh
+
+    echo "[core]
+	    mergeoptions = --no-edit" >> /home/vagrant/.gitconfig
+    echo 'export GIT_MERGE_AUTOEDIT=no' >> /home/vagrant/.bashrc
+
     # Cleanup
     rm -rf /home/vagrant/setup
-    echo "All done! Now run: vagrant ssh"
+
   SHELL
 end
