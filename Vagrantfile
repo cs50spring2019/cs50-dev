@@ -55,24 +55,29 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     export DEBIAN_FRONTEND=noninteractive
 
-    echo Install all the packages needed:
+    echo Installing necessary packages...
     apt-get update > /dev/null
     for package in $( grep -v '#' /home/vagrant/cs50-dev/setup/packages ); do
-        echo " $package"
+      echo " $package"
     	apt-get install -y $package  &> /dev/null
     done
 
-    echo Move the dot files into the top level: 
+    echo Installing dot files...
     dotdir=/home/vagrant/cs50-dev/dotfiles/virtualbox
     for dot in $dotdir/*; do
     	dotfile=.${dot##*/}
-	echo " $dotfile"
+	    echo " $dotfile"
     	dotlink=/home/vagrant/$dotfile
-	rm -f $dotlink
+	    rm -f $dotlink
     	ln -s $dot $dotlink
     done
 
-    echo "Do all your work in ~/cs50-dev." > /home/vagrant/DO-NO-WORK-HERE
+    echo "Do all your work in ~/cs50-dev/" > /home/vagrant/DO-NO-WORK-HERE
     echo Provision successful.
   SHELL
+
+  config.trigger.before :destroy do |trigger|
+    trigger.warn = "Backing up home folder to cs50-dev/home-backup.tgz"
+    trigger.run_remote = {inline: "cd /home/vagrant && tar --absolute-names --exclude './cs50-dev' -zcvf /vagrant/home-backup.tgz . &> /dev/null"}
+  end
 end
