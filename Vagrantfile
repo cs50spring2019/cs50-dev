@@ -48,19 +48,21 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  # Install necessary packages with a shell script.
+  # Upload into the VM some files to help with setup; these will be removed below.
+  config.vm.provision "file", source: "./setup", destination: "/home/vagrant/setup"
+
+  # Finish provisioning with a shell script.
   config.vm.provision "shell", inline: <<-SHELL
     export DEBIAN_FRONTEND=noninteractive
 
     echo Install all the packages needed
-#    apt-get update > /dev/null
-#    apt-get install -y $( grep -v '#' /home/vagrant/cs50-dev/setup/packages ) &> /dev/null
+    apt-get update > /dev/null
+    apt-get install -y $( grep -v '#' /home/vagrant/cs50-dev/setup/packages ) &> /dev/null
 
     echo Move the dot files into the top level
     cp /home/vagrant/cs50-dev/dotfiles/virtualbox/.??* /home/vagrant/
 
     echo "Do all your work in ~/cs50-dev." > /home/vagrant/DO-NO-WORK-HERE
-
     echo Provision successful.
   SHELL
 end
