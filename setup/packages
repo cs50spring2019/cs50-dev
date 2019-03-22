@@ -1,0 +1,6 @@
+wget
+git
+gcc
+valgrind
+autoconf
+emacs
