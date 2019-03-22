@@ -6,23 +6,28 @@ fi
 echo 'Using Homebrew (brew) to install some base tools (virtualbox, vagrant, etc.)' >&2
 
 # just in case someone manually downloaded this file/repo instead of using git to fetch it
-brew install git 
+if ! [ -x "$(command -v git)" ]; then
+    brew install git 
+fi
 
 # then install base tools (we can try to run these blind; brew will keep chugging along even if they are already installed.)
-brew cask install virtualbox
-brew cask install vagrant
+brew cask install virtualbox || exit 1
+brew cask install vagrant || exit 1
 # brew cask install ngrok   # for ssh sharing + you need to sign up for an account: https://ngrok.com
 # vagrant plugin install vagrant-share  # for ssh sharing
 
+# Setup the shared folder
+mkdir -p shared
+
 # then setup a vagrant environment
 echo 'Creating your dev Virtual Machine for you - this will take a few minutes...' >&2
-vagrant up
-vagrant halt
+vagrant up || exit 1
+vagrant halt || exit 1
 
 # Configure dotfiles
-cp dotfiles/MacOS/.gitignore_global ~/
+# cp setup/dotfiles/MacOS/.gitignore_global ~/
 git config --global core.excludesfile ~/.gitignore_global
-cp dotfiles/MacOS/.bash_profile-master ~/
-cp dotfiles/MacOS/.bash_profile ~/
-cp dotfiles/MacOS/.bashrc-master ~/
-cp dotfiles/MacOS/.bashrc ~/
+# cp setup/dotfiles/MacOS/.bash_profile-master ~/
+# cp setup/dotfiles/MacOS/.bash_profile ~/
+# cp setup/dotfiles/MacOS/.bashrc-master ~/
+# cp setup/dotfiles/MacOS/.bashrc ~/
