@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Install homebrew
 if ! [ -x "$(command -v brew)" ]; then
     echo 'Hombrew not installed - trying to install now...' >&2
@@ -25,9 +27,6 @@ vagrant up || exit 1
 vagrant halt || exit 1
 
 # Configure dotfiles
-# cp setup/dotfiles/MacOS/.gitignore_global ~/
 git config --global core.excludesfile ~/.gitignore_global
-# cp setup/dotfiles/MacOS/.bash_profile-master ~/
-# cp setup/dotfiles/MacOS/.bash_profile ~/
-# cp setup/dotfiles/MacOS/.bashrc-master ~/
-# cp setup/dotfiles/MacOS/.bashrc ~/
+echo ""
+echo "bootstrap complete"
