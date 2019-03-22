@@ -5,7 +5,7 @@
 <!--<img src="./media/github-sign-up.png" alt="github-sign-up"
 	title="Github Sign Up"/>-->
 
-2. We need to configure SSH keys for pulling and pushing code with your new GitHub account. First, check to see if you already have an existing ssh key. Open the **Terminal** application, which is located at `Applications/Utilities`. Copy and paste the following command into terminal and press *enter* (⏎). This will list your ssh key files (if they exist). If they **DO NOT** exist, continue on to step 3. If they **DO** exist, skip to step 4.
+2. We need to configure SSH keys for pulling and pushing code with your new GitHub account. First, check to see if you already have an existing ssh key. Open the **Terminal** application, which is located at `Applications/Utilities`. Copy and paste the following command into terminal and press *enter* (⏎). This will list your ssh key files (if they exist). If **DO NOT** not have any keys, you should recieve a `No such file or directory` message as output. If you **DO** have an existing key, you should skip to step 4.
 
 ```
 ls -al ~/.ssh
@@ -17,6 +17,9 @@ ls -al ~/.ssh
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
+<img src="./media/ssh-generation.png" alt="ssh-generation"
+	title="SSH Generation"/>
+
 4. After generating your new ssh key, you need to add it to your GitHub account. Copy your ssh key to your clipboard using the command below.
 
 ```
@@ -25,37 +28,53 @@ pbcopy < ~/.ssh/id_rsa.pub
 
 5. Open a browser and navigate to [GitHub](https://www.github.com). After logging in, click on your profile photo in the upper-right corner of the page and navigate to **Settings/SSH and GPG Keys/New SSH key**.
 
+<img src="./media/ssh-add-key-1.png" alt="ssh-add-key-1"
+	title="SSH Add Key"/>
+
 6. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air". Paste your key into the "Key" field. Click **Add SSH Key**.
 
-**Insert image of adding ssh key**
+<img src="./media/ssh-add-key-2.png" alt="ssh-add-key-2"
+	title="SSH Add Key"/>
 
-2. Open the **Terminal** application. Copy and paste the below command and press *enter* (⏎) to clone the `cs50-dev` repository.
+7. Open the **Terminal** application. Copy and paste the below command and press *enter* (⏎) to clone the `cs50-dev` repository. You may receive a warning when you try to use git, like the one shown below. Go ahead and click install to iinstall command line developer tools.
 
 ```
 cd && git clone git@github.com:cs50spring2019/cs50-dev.git cs50-dev
 ```
 
-<img src="./media/setup-osx-2.png" alt="setup-osx-1"
-	title="Setup OSX"/>
+<img src="./media/git-clone-2.png" alt="git-clone-2"
+	title="Git Clone"/>
 	
-2.1. You may receive a warning when you try to use git, like the one shown below. If you do, install the Xcode Development Tools and rerun the command from step 2.
+8. After installing the command line developer tools, rerun the git clone command above. If prompted with `Are you sure you want to continue connecting (yes/no)?` type `yes` and press *enter* (⏎).
 
-**Insert picture showing Xcode development tools installation**
+<img src="./media/git-clone-1.png" alt="git-clone-1"
+	title="Git Clone"/>
 
-2.2 Show them rerunning the command and then have them type "yes" when asked about connecting to github.
-
-3. Afterwards, paste the following command into **Terminal** and press *enter* (⏎). Enter the email and password for your **github** account. **NOTE: The characters in the password field will not show up, but they are in fact being read**. You *may* also be prompted for your **computer's** password at some point so that the installation script has the necessary permissions for downloading software on your computer.
+9. Afterwards, paste the following command into **Terminal** and press *enter* (⏎). When prompted by the script, press *enter* (⏎) again.
 
 ```
 cd ~/cs50-dev && ./setup/osx-bootstrap.sh
 ```
 
-**Insert picture showing this step**
+<img src="./media/bootstrap-1.png" alt="bootstrap-1"
+	title="Bootstrap"/>
 
-**Insert picture showing password prompt**
+10. If prompted, enter the password for your computer (not GitHub account). **NOTE: when typing the characters in your password will not appear, but they are in fact being read.**
+
+<img src="./media/bootstrap-2.png" alt="bootstrap-2"
+	title="Bootstrap"/>
+	
+11. At some point during the bootstrap process you may recieve a popup (pictured below) blocking a system extension. You should click `Open Security Preferences` and then click `Allow`.
+
+<img src="./media/bootstrap-3.png" alt="bootstrap-3"
+	title="Bootstrap"/>
+	
+12. After clicking `Allow` should navigate back to your **Terminal** window and rerun the command from **Step 9**. *This bootstrap process will take a while (~5-15 minutes depending on your internet connection)*. You should see "bootstrap complete" when the process is finished.
+
+<img src="./media/bootstrap-4.png" alt="bootstrap-4"
+	title="Bootstrap"/>
 
 4. After the installation script runs, read through its output to see if it printed any warnings or errors. It should end with "bootstrap complete", if it was successful. If not, please use the "Vagrant-MacOS" forum on Piazza to ask for help.
 
-> **Replace this image with one on a vanilla machine (there are some brew packages already installed on this one)**
-<img src="./media/setup-osx-4.png" alt="setup-osx-4"
-	title="Setup OSX"/>
+<img src="./media/bootstrap-5.png" alt="bootstrap-5"
+	title="Bootstrap"/>
