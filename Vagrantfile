@@ -52,12 +52,22 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     export DEBIAN_FRONTEND=noninteractive
 
-    echo Install all the packages needed
-#    apt-get update > /dev/null
-#    apt-get install -y $( grep -v '#' /home/vagrant/cs50-dev/setup/packages ) &> /dev/null
+    echo Install all the packages needed:
+    apt-get update > /dev/null
+    for package in $( grep -v '#' /home/vagrant/cs50-dev/setup/packages ); do
+        echo " $package"
+    	apt-get install -y $package  &> /dev/null
+    done
 
-    echo Move the dot files into the top level
-    cp /home/vagrant/cs50-dev/dotfiles/virtualbox/.??* /home/vagrant/
+    echo Move the dot files into the top level: 
+    dotdir=/home/vagrant/cs50-dev/dotfiles/virtualbox
+    for dot in $dotdir/*; do
+    	dotfile=.${dot##*/}
+	echo " $dotfile"
+    	dotlink=/home/vagrant/$dotfile
+	rm -f $dotlink
+    	ln -s $dot $dotlink
+    done
 
     echo "Do all your work in ~/cs50-dev." > /home/vagrant/DO-NO-WORK-HERE
 
