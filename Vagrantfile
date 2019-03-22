@@ -48,7 +48,10 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  # Install necessary packages with a shell script.
+  # Upload into the VM some files to help with setup; these will be removed below.
+  config.vm.provision "file", source: "./setup", destination: "/home/vagrant/setup"
+
+  # Finish provisioning with a shell script.
   config.vm.provision "shell", inline: <<-SHELL
     export DEBIAN_FRONTEND=noninteractive
 
@@ -70,7 +73,6 @@ Vagrant.configure("2") do |config|
     done
 
     echo "Do all your work in ~/cs50-dev." > /home/vagrant/DO-NO-WORK-HERE
-
     echo Provision successful.
   SHELL
 end
