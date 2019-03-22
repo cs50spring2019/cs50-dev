@@ -2,15 +2,33 @@
 
 1. Create a [GitHub account](https://github.com).
 
-<img src="./media/github-sign-up.png" alt="github-sign-up"
-	title="Github Sign Up"/>
+<!--<img src="./media/github-sign-up.png" alt="github-sign-up"
+	title="Github Sign Up"/>-->
 
-2. Follow [GitHub's guide](https://help.github.com/en/articles/connecting-to-github-with-ssh) for generating a new SSH key and adding it to your GitHub account. Namely, complete the steps listed below. These require you to open and paste commands into the **Terminal** application, which can be found in `Applications/Utilities` or by using spotlight (`cmd+spacebar`) to search for and open the application. **NOTE: Do not copy the `$` symbol at the beginning of the provided commands. Only copy text after the `$` symbol.**
+2. We need to configure SSH keys for pulling and pushing code with your new GitHub account. First, check to see if you already have an existing ssh key. Open the **Terminal** application, which is located at `Applications/Utilities`. Copy and paste the following command into terminal and press *enter* (⏎). This will list your ssh key files (if they exist). If they **DO NOT** exist, continue on to step 3. If they **DO** exist, skip to step 4.
 
-	- Checking for existing SSH keys
-		- Step 4: **DO NOT** enter a passphrase. Simply press *enter* (⏎) twice.
-	- Generating a new SSH key and adding it to the ssh-agent
-	- Adding a new SSH keey to your GitHub account
+```
+ls -al ~/.ssh
+```
+
+3. If you **DO NOT** have an existing ssh key, then you need to generate one. Copy and paste the below command into the terminal, substituting your GitHub email address **before** pressing *enter* (⏎). When you're prompted to "Enter a file in which to save the key," press *enter* (⏎). When you're prompted to "Enter passphrase (empty for no passphrase)" press *enter* (⏎) two more times. Picture below is example output from generating an ssh key.
+
+```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+4. After generating your new ssh key, you need to add it to your GitHub account. Copy your ssh key to your clipboard using the command below.
+
+```
+pbcopy < ~/.ssh/id_rsa.pub
+```
+
+5. Open a browser and navigate to [GitHub](https://www.github.com). After logging in, click on your profile photo in the upper-right corner of the page and navigate to **Settings/SSH and GPG Keys/New SSH key**.
+
+6. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air". Paste your key into the "Key" field. Click **Add SSH Key**.
+
+**Insert image of adding ssh key**
+
 2. Open the **Terminal** application. Copy and paste the below command and press *enter* (⏎) to clone the `cs50-dev` repository.
 
 ```
