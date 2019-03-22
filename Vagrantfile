@@ -57,10 +57,20 @@ Vagrant.configure("2") do |config|
 
     echo Installing necessary packages...
     apt-get update > /dev/null
-    apt-get install -y $( grep -v '#' /home/vagrant/cs50-dev/setup/packages ) &> /dev/null
+    for package in $( grep -v '#' /home/vagrant/cs50-dev/setup/packages ); do
+      echo " $package"
+    	apt-get install -y $package  &> /dev/null
+    done
 
     echo Installing dot files...
-    cp /home/vagrant/cs50-dev/dotfiles/virtualbox/.??* /home/vagrant/
+    dotdir=/home/vagrant/cs50-dev/dotfiles/virtualbox
+    for dot in $dotdir/*; do
+    	dotfile=.${dot##*/}
+	    echo " $dotfile"
+    	dotlink=/home/vagrant/$dotfile
+	    rm -f $dotlink
+    	ln -s $dot $dotlink
+    done
 
     echo "Do all your work in ~/cs50-dev/" > /home/vagrant/DO-NO-WORK-HERE
     echo Provision successful.
