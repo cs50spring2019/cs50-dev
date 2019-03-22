@@ -1,5 +1,5 @@
 # Overview
-This repository contains top-level files (i.e. Vagrantfile and bootstraph.sh) for downloading and configuring your Virtual Machine (VM), which you will use for compiling and running your lab assignments. Below, we detail how to clone and setup this repository, download assignments, and write/compile/execute your code. 
+This repository contains files for downloading and configuring your Virtual Machine (VM), as well as documentation on how to the use the VM to complete lab assignments. Below are important links for setting up your development environment, cloning lab assignments, and VM usage. 
 
 #### Table of Contents
 
