@@ -48,36 +48,27 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  # Upload some setup files to help with setup
+  # Upload into the VM some files to help with setup; these will be removed below.
   config.vm.provision "file", source: "./setup", destination: "/home/vagrant/setup"
 
-  # Enable provisioning with a shell script.
+  # Finish provisioning with a shell script.
   config.vm.provision "shell", inline: <<-SHELL
     export DEBIAN_FRONTEND=noninteractive
 
-    # Install all the packages needed
+    echo Install all the packages needed
     apt-get update > /dev/null
-    xargs apt-get install -y < /home/vagrant/setup/packages &> /dev/null
+    apt-get install -y $( grep -v '#' /home/vagrant/setup/packages ) &> /dev/null
     
-    # Move the dot files into the top level
+    echo Move the dot files into the top level
     mv /home/vagrant/setup/dotfiles/cs50-home/.??* /home/vagrant/ &> /dev/null
-
-    apt-get install wget -y > /dev/null
-    apt-get install git -y > /dev/null
-    apt-get install gcc -y > /dev/null
-    apt-get install valgrind -y > /dev/null
-
-    apt-get install autoconf -y > /dev/null
-
-    # if you want to run shell scripts, you can also reference those...
-    /home/vagrant/cs50-shared/vm-dotfile-setup.sh
 
     echo "[core]
 	    mergeoptions = --no-edit" >> /home/vagrant/.gitconfig
     echo 'export GIT_MERGE_AUTOEDIT=no' >> /home/vagrant/.bashrc
 
-    # Cleanup
+    echo Cleanup
     rm -rf /home/vagrant/setup
 
+    echo Provision successful.
   SHELL
 end
