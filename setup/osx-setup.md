@@ -69,12 +69,16 @@ cd ~/cs50-dev && ./setup/osx-bootstrap.sh
 <img src="./media/bootstrap-3.png" alt="bootstrap-3"
 	title="Bootstrap"/>
 	
-12. After clicking `Allow` should navigate back to your **Terminal** window and rerun the command from **Step 9**. *This bootstrap process will take a while (~5-15 minutes depending on your internet connection)*. You should see "bootstrap complete" when the process is finished.
+12. After clicking `Allow`, navigate back to your **Terminal** window and rerun the command from Step 9 (shown below). *This bootstrap process will take a while (~5-15 minutes depending on your internet connection)*. You should see "bootstrap complete" when the process is finished.
+
+```
+cd ~/cs50-dev && ./setup/osx-bootstrap.sh
+```
 
 <img src="./media/bootstrap-4.png" alt="bootstrap-4"
 	title="Bootstrap"/>
 
-4. After the installation script runs, read through its output to see if it printed any warnings or errors. It should end with "bootstrap complete", if it was successful. If not, please use the "Vagrant-MacOS" forum on Piazza to ask for help.
+13. After the installation script runs, read through its output to see if it printed any warnings or errors. It should end with "bootstrap complete", if it was successful. If not, please use the "Vagrant-MacOS" forum on Piazza to ask for help.
 
 <img src="./media/bootstrap-5.png" alt="bootstrap-5"
 	title="Bootstrap"/>
