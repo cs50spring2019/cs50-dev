@@ -18,9 +18,6 @@ brew cask install vagrant || exit 1
 # brew cask install ngrok   # for ssh sharing + you need to sign up for an account: https://ngrok.com
 # vagrant plugin install vagrant-share  # for ssh sharing
 
-# Setup the shared folder
-mkdir -p shared
-
 # then setup a vagrant environment
 echo 'Creating your dev Virtual Machine for you - this will take a few minutes...' >&2
 vagrant up || exit 1
