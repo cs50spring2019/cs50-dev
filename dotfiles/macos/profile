@@ -1,0 +1,2 @@
+# We use bash, and bash will ignore this file and read ~/.bash_profile instead.
+

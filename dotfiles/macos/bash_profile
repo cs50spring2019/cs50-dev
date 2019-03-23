@@ -1,0 +1,17 @@
+# If you want to customize, edit .bashrc.custom
+
+# This file is sourced by bash in every login shell.  DO NOT EDIT.
+
+export LOGIN_SHELL=1
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
+dotfiles=~/dotfiles/virtualbox/
+if [ -f $dotfiles/.bashrc ]; then
+    source $dotfiles/.bashrc
+fi
+
+# ----------------------------------------------------------------------

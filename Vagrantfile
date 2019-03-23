@@ -58,7 +58,7 @@ Vagrant.configure("2") do |config|
     echo Installing necessary packages...
     apt-get update > /dev/null
     for package in $( grep -v '#' /home/vagrant/cs50-dev/setup/packages ); do
-      echo " $package"
+        echo " $package"
     	apt-get install -y $package  &> /dev/null
     done
 
@@ -66,9 +66,9 @@ Vagrant.configure("2") do |config|
     dotdir=/home/vagrant/cs50-dev/dotfiles/virtualbox
     for dot in $dotdir/*; do
     	dotfile=.${dot##*/}
-	    echo " $dotfile"
+        echo " $dotfile"
     	dotlink=/home/vagrant/$dotfile
-	    rm -f $dotlink
+        rm -f $dotlink
     	ln -s $dot $dotlink
     done
 

@@ -1,6 +1,6 @@
-# CS50 recommended .gitignore_global file
+# CS50 recommended .gitignore_global file for MacOS
 # to install it:
-#  cp ~cs50/.gitignore_global ~
+#  cp gitignore_global ~/.gitignore_global
 #  git config --global core.excludesfile ~/.gitignore_global
 
 # core dumps
@@ -26,3 +26,4 @@ Icon
 ._*
 .Spotlight-V*
 .Trashes
+
