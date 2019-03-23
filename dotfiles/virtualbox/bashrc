@@ -1,10 +1,9 @@
 # WARNING: This file will be overwritten if CS50 vagrant is reprovisioned.
 # If you prefer something else, create ~/.bashrc.custom
 
-dotfiles=~/dotfiles/virtualbox/
-if [ -f $dotfiles/.bashrc.custom ]; then
-    source $dotfiles/.bashrc.custom
-elif [ -f $dotfiles/.bashrc.default ]; then
-    source $dotfiles/.bashrc.default
+if [ -r ~/.bashrc.custom ]; then
+    source ~/.bashrc.custom
+elif [ -r ~/.bashrc.default ]; then
+    source ~/.bashrc.default
 fi
 
