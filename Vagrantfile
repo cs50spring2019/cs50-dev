@@ -12,8 +12,13 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. 
   # You can search for boxes at https://vagrantcloud.com/search.
+  # We stick with one version current at start of course;
+  # see https://www.vagrantup.com/docs/boxes/versioning.html
   config.vm.box = "ubuntu/trusty64"
+  config.vm.box_version = "20190318.0.0"
   config.vm.hostname = "cs50box"
+  # Don't check for updates on every 'vagrant up'
+  config.vm.box_check_update = false
 
   # Upload user's ssh key into box so it can be used for GitHub
   ssh_key_path = "~/.ssh/"
