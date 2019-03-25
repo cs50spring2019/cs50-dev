@@ -8,5 +8,5 @@
 
 ;; If you want additional or different customizations, create .emacs.custom
 ; syntax: (load FILE NOERROR NOMESSAGE NOSUFFIX MUST-SUFFIX)
-(load "/home/vagrant/dotfiles/virtualbox/.emacs.custom" t t nil nil)
+(load "/home/vagrant/.emacs.custom" t t nil nil)
 

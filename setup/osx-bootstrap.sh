@@ -20,6 +20,7 @@ brew cask install vagrant || exit 1
 
 # then setup a vagrant environment
 echo 'Creating your dev Virtual Machine for you - this will take a few minutes...' >&2
+vagrant plugin install vagrant-vbguest || exit 1
 vagrant up || exit 1
 vagrant halt || exit 1
 

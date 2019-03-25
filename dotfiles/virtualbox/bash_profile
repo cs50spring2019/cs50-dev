@@ -1,7 +1,9 @@
 # WARNING: This file will be overwritten if CS50 vagrant is reprovisioned.
-# If you want to customize, edit .bashrc.custom
+# DO NOT EDIT. If you want to customize, edit .bashrc.custom
 
-# This file is sourced by bash in every login shell.  DO NOT EDIT.
+# This file is sourced by bash in every login shell.
+# About bash_profile vs bashrc:
+#   http://www.joshstaiger.org/archives/2005/07/bash_profile_vs.html
 
 export LOGIN_SHELL=1
 
@@ -10,9 +12,8 @@ if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
 
-dotfiles=~/dotfiles/virtualbox/
-if [ -f $dotfiles/.bashrc ]; then
-    source $dotfiles/.bashrc
+if [ -r $HOME/.bashrc ]; then
+    source $HOME/.bashrc
 fi
 
 # ----------------------------------------------------------------------

@@ -1,0 +1,9 @@
+# If you prefer something else, create ~/.bashrc.custom
+
+dotfiles=~/dotfiles/virtualbox/
+if [ -f $dotfiles/.bashrc.custom ]; then
+    source $dotfiles/.bashrc.custom
+elif [ -f $dotfiles/.bashrc.default ]; then
+    source $dotfiles/.bashrc.default
+fi
+
