@@ -33,13 +33,23 @@
 ```
 vargant -v
 git --version
+
 ```
 
 <img src="./media/windows-setup-check.png">
 
 4. Then you can follow the Step 1 to Step 8 in the OS X guide for creating a github account, setting up ssh and cloneing the destination repo. You can use Windows Command Prompt instead of MacOS Terminal. Something you need to pay attention here:
 
-	In step 4, you can simply copy your key by opening it directly. It's located in C:\Users\YOUR_USER_NAME\.ssh\id_rsa.pub. Please replace YOUR_USER_NAME within your user name.
+
+	In step 4, you can simply copy your key by opening it directly. It's located in C:\Users\YOUR_USER_NAME\.ssh\id_rsa.pub. Please replace YOUR_USER_NAME within your user name. You can open it with Notepad, Sublime, etc.
+
+	Tip: You can also use Git Bash. You can easily found it by clicking right button in File Explorer. Please use the following command to check the existence of an ssh key and copy its content in Git Bash. (Thanks you Themis for this useful tip!)
+
+```
+ls -al ~/.ssh
+clip < ~/.ssh/id_rsa.pub
+```
+
 
 <img src="./media/windows-git-clone.png">
 
