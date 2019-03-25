@@ -1,3 +1,8 @@
+#### Table of Contents
+- [Downloading Lab Assignments](#downloading-lab-assignments)
+- [Using The Virtual Machine](#using-the-virtual-machine)
+- [Writing Code](setup/#writing-code)
+- [Compiling and Executing Code](#compiling-and-executing-code)
 # Downloading Lab Assignments
 You will be using your VM to compile and test your lab assignments. Assignments will be handed out and managed via GitHub classroom. For every assignment, you will be sent a link for GitHub classroom that will instantiate a new repository for you. You will use these repositories to backup and turn in code. The process for cloning a new assignment repo to your computer is detailed below.
 
