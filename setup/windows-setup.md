@@ -60,7 +60,7 @@ clip < ~/.ssh/id_rsa.pub
 5. After you clone the repo, please cd into the cs-50dev folder and run the following command to set up your virtual machine correctly within Vagrant. You can check the figure if you are not clear about it.
 
 ```
-vargant up
+vagrant up
 ```
 
 <img src="./media/windows-vagrant-up.png">
@@ -68,7 +68,7 @@ vargant up
 It really takes some time. Please be patient. After it's finished, please use the following command to shutdown the VM.
 
 ```
-vargant halt
+vagrant halt
 ```
 6. Please use the following command for dotfiles configurations.
 
