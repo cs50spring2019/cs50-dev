@@ -66,7 +66,7 @@ clip < ~/.ssh/id_rsa.pub
 ssh_key_path = "C:/Users/YOUR_USER_NAME/.ssh/"
 ```
 
-<img src="./media/windows-sshkey-send-in.png">
+<img src="./media/Windows-sshkey-send-in.png">
 
 Please replace YOUR_USER_NAME with your username. Note that skipping this step is fine, since cs50-dev is the shared folder and you can do the Github stuff in your host machine.
 
