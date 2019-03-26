@@ -96,7 +96,10 @@ cd ~/cs50-dev && ./setup/osx-bootstrap.sh
 <img src="./media/bootstrap-4.png" alt="bootstrap-4"
 	title="Bootstrap"/>
 
-15. After the installation script runs, read through its output to see if it printed any warnings or errors. It should end with "bootstrap complete", if it was successful. If not, please use the "Vagrant-MacOS" forum on Piazza to ask for help.
+15. After the installation script runs, read through its output to see if it printed any warnings or errors. It should end with "bootstrap complete", if it was successful. If not, please use the "Vagrant-MacOS" forum on Piazza to ask for help. You will most likely also see output related to **Guest Additions** (shown in second picture). As long as you do not have any glaring errors, output similar to what is shown below is fine.
 
 <img src="./media/bootstrap-5.png" alt="bootstrap-5"
 	title="Bootstrap"/>
+	
+<img src="./media/guest-additions.png" alt="guest-additions"
+	title="Guest Additions"/>
