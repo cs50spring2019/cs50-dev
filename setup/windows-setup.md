@@ -82,7 +82,7 @@ vagrant up
 It really takes some time. Please be patient. After it's finished, you can use the following command to access the machine and play with it.
 
 ```
-vagrant up
+vagrant ssh
 ```
 
 You can use the following command to shutdown the VM.
