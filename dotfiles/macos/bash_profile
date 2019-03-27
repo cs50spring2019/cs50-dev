@@ -9,9 +9,8 @@ if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
 
-dotfiles=~/dotfiles/virtualbox/
-if [ -f $dotfiles/.bashrc ]; then
-    source $dotfiles/.bashrc
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
 fi
 
 # ----------------------------------------------------------------------
