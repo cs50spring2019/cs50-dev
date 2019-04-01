@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
   config.vm.box_check_update = false
 
   # Upload user's ssh key into box so it can be used for GitHub
-  ssh_key_path = "C:/Users/Nour Benmohamed/.ssh/"
+  ssh_key_path = "~/.ssh/"
   config.vm.provision "shell", inline: "mkdir -p /home/vagrant/.ssh"
   config.vm.provision "file", source: "#{ ssh_key_path + 'id_rsa' }", destination: "/home/vagrant/.ssh/id_rsa"
   config.vm.provision "file", source: "#{ ssh_key_path + 'id_rsa.pub' }", destination: "/home/vagrant/.ssh/id_rsa.pub"
