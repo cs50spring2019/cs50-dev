@@ -47,7 +47,7 @@ alias df='df -kTh'
 # Set PS1 prompt
 # \u: userid, \h:hostname, \w: pwd
 #
-export PS1='[\u@\h \w]\$ '
+export PS1='[MacOS:\w]\$ '
 #
 
 # --------------------------------------------------------------------

@@ -6,8 +6,6 @@
 
 if [ -r ~/.bashrc_logout.custom ]; then
     source ~/.bashrc_logout.custom
-else 
-    echo logging out...
 fi
 
 # --------------------------------------------------------------------

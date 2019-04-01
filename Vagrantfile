@@ -63,6 +63,9 @@ Vagrant.configure("2") do |config|
     	ln -s $dot $dotlink
     done
 
+    echo Protecting your .ssh keys...
+    chmod 600 .ssh/id_rsa .ssh/id_rsa.pub
+
     echo "Do all your work in ~/cs50-dev/" > /home/vagrant/DO-NO-WORK-HERE
     echo Provision successful.
   SHELL
