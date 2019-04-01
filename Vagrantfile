@@ -2,15 +2,15 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# For more information on Vagrantfile, 
-#  see https://www.vagrantup.com/docs/vagrantfile/ 
-#  and examples at http://pietervogelaar.nl/vagrant-shell-provision-example 
+# For more information on Vagrantfile,
+#  see https://www.vagrantup.com/docs/vagrantfile/
+#  and examples at http://pietervogelaar.nl/vagrant-shell-provision-example
 
 cs50user = "vagrant"
 
 Vagrant.configure("2") do |config|
 
-  # Every Vagrant development environment requires a box. 
+  # Every Vagrant development environment requires a box.
   # You can search for boxes at https://vagrantcloud.com/search.
   # We stick with one version current at start of course;
   # see https://www.vagrantup.com/docs/boxes/versioning.html
@@ -21,14 +21,14 @@ Vagrant.configure("2") do |config|
   config.vm.box_check_update = false
 
   # Upload user's ssh key into box so it can be used for GitHub
-  ssh_key_path = "~/.ssh/"
+  ssh_key_path = "C:/Users/Nour Benmohamed/.ssh/"
   config.vm.provision "shell", inline: "mkdir -p /home/vagrant/.ssh"
   config.vm.provision "file", source: "#{ ssh_key_path + 'id_rsa' }", destination: "/home/vagrant/.ssh/id_rsa"
   config.vm.provision "file", source: "#{ ssh_key_path + 'id_rsa.pub' }", destination: "/home/vagrant/.ssh/id_rsa.pub"
 
   # Share this folder to the guest VM:
-  # The first arg is the relative path on the host of the folder to share. 
-  # The second arg is the full path on the guest where the folder will mount. 
+  # The first arg is the relative path on the host of the folder to share.
+  # The second arg is the full path on the guest where the folder will mount.
   config.vm.synced_folder ".", "/home/vagrant/cs50-dev", owner: cs50user, group: cs50user
 
   # Provider-specific configuration about the VM name and size.
