@@ -9,7 +9,7 @@
 # --------------------------------------------------------------------
 
 # Use less as a paginator instead of more (e.g. for man pages).
-export PAGER=less
+export PAGER="less -R"
 
 # Make less more verbose than usual.
 export LESS='-s -w -M'

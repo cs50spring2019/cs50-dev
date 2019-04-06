@@ -6,7 +6,7 @@
 	# editor started by git when needed
 	editor = emacs
 	# common gitignore file lives in home dir
-	excludesfile = /home/vagrant/.gitignore_global
+	excludesfile = /Users/yourname/.gitignore_global
 	# proceed with default merge message, rather than asking
  	mergeoptions = --no-edit
 [push]
