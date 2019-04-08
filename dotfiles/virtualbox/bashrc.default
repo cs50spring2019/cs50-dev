@@ -57,6 +57,9 @@ export PS1='[\h:\w]\$ '
 # If running interactively, then:
 if [ "$PS1" ]; then
 
+    # allow core dumps
+    ulimit -c unlimited
+
     # Make reasonable environment
     stty sane dec
 

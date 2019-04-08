@@ -5,6 +5,7 @@
 (global-set-key "\C-xg" 'goto-line)
 (global-set-key "\C-xc" 'compile)
 (setq compile-command "make -k ")
+(setq-default indent-tabs-mode nil)
 
 ;; If you want additional or different customizations, create .emacs.custom
 ; syntax: (load FILE NOERROR NOMESSAGE NOSUFFIX MUST-SUFFIX)
