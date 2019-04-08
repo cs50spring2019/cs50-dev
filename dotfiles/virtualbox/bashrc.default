@@ -40,7 +40,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # convenience aliases
-alias ls='ls -F'
+alias ls='ls -F --color=auto'
 alias mkdir='mkdir -p'
 alias which='type -all'
 alias du='du -kh'
