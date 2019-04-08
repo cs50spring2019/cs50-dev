@@ -50,7 +50,7 @@ Vagrant.configure("2") do |config|
     apt-get update > /dev/null
     for package in $( grep -v '#' /home/vagrant/cs50-dev/setup/packages ); do
         echo " $package"
-    	apt-get install -y $package  &> /dev/null
+    	apt-get install -y $package  &> /dev/null && echo "SUCCESSFULLY INSTALLED $package" || echo "FAILED TO INSTALL $package"
     done
 
     echo Installing dot files...
