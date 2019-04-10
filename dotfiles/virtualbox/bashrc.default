@@ -11,6 +11,9 @@
 # effect.  For more info type `man bash'.
 # --------------------------------------------------------------------
 
+# Set default permissions for files. Owners=rwx, Group=rx, Guest=rx
+umask 022
+
 # Use less as a paginator instead of more (e.g. for man pages).
 export PAGER="less -R"
 
