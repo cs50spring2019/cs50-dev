@@ -48,10 +48,12 @@ Vagrant.configure("2") do |config|
 
     echo Installing necessary packages...
     apt-get update > /dev/null
-    for package in $( grep -v '#' /home/vagrant/cs50-dev/setup/packages ); do
-        echo " $package"
-    	apt-get install -y $package  &> /dev/null && echo "SUCCESSFULLY INSTALLED $package" || echo "FAILED TO INSTALL $package"
-    done
+    apt-get install -y wget &> /dev/null && echo "SUCCESSFULLY INSTALLED: wget" || echo "FAILED TO INSTALL: wget"
+    apt-get install -y git &> /dev/null && echo "SUCCESSFULLY INSTALLED: git" || echo "FAILED TO INSTALL: git"
+    apt-get install -y gcc &> /dev/null && echo "SUCCESSFULLY INSTALLED: gcc" || echo "FAILED TO INSTALL: gcc"
+    apt-get install -y valgrind &> /dev/null && echo "SUCCESSFULLY INSTALLED: valgrind" || echo "FAILED TO INSTALL: valgrind"
+    apt-get install -y autoconf &> /dev/null && echo "SUCCESSFULLY INSTALLED: autoconf" || echo "FAILED TO INSTALL: autoconf"
+    apt-get install -y emacs &> /dev/null && echo "SUCCESSFULLY INSTALLED: emacs" || echo "FAILED TO INSTALL: emacs"
 
     echo Installing dot files...
     dotdir=/home/vagrant/cs50-dev/dotfiles/virtualbox
