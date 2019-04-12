@@ -34,12 +34,9 @@ Vagrant.configure("2") do |config|
   # Provider-specific configuration about the VM name and size.
   config.vm.provider "virtualbox" do |vb|
     vb.name = 'cs50vm'
+    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50", "--memory", 4096,]
+    vb.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 1000]
 
-    vb.customize [
-      "modifyvm", :id,
-      "--cpuexecutioncap", "50",
-      "--memory", 4096,
-    ]
   end
 
   # Finish provisioning with a shell script, which **runs inside the VM**
