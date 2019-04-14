@@ -31,48 +31,57 @@ Vagrant.configure("2") do |config|
   # The second arg is the full path on the guest where the folder will mount.
   config.vm.synced_folder ".", "/home/vagrant/cs50-dev", owner: cs50user, group: cs50user
 
-  # Provider-specific configuration about the VM name and size.
+  # Provider-specific configuration about the VM name and size;
+  # set time-synchronization to update quickly when resuming suspended VM.
   config.vm.provider "virtualbox" do |vb|
     vb.name = 'cs50vm'
     vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50", "--memory", 4096,]
     vb.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 1000]
-
   end
 
   # Finish provisioning with a shell script, which **runs inside the VM**
   config.vm.provision "shell", inline: <<-SHELL
     export DEBIAN_FRONTEND=noninteractive
+    log=/home/vagrant/provision.log
+    success=true
+
+    function try() {
+        echo "\n=====\n$1" &>> $log;
+        if ! $1 &>> $log;
+        then echo "FAILED:  $1"; success=false; fi
+    }
+
+    echo Logging to $log...
+    echo Provision started &> $log
+
+    echo Protect your ssh keys...
+    try "chmod 600 .ssh/id_rsa .ssh/id_rsa.pub"
+
+    echo Set to Eastern timezone...
+    try "cp -f /usr/share/zoneinfo/US/Eastern /etc/localtime"
 
     echo Installing necessary packages...
-    apt-get update > /dev/null
-    apt-get install -y wget &> /dev/null && echo "SUCCESSFULLY INSTALLED: wget" || echo "FAILED TO INSTALL: wget"
-    apt-get install -y git &> /dev/null && echo "SUCCESSFULLY INSTALLED: git" || echo "FAILED TO INSTALL: git"
-    apt-get install -y gcc &> /dev/null && echo "SUCCESSFULLY INSTALLED: gcc" || echo "FAILED TO INSTALL: gcc"
-    apt-get install -y valgrind &> /dev/null && echo "SUCCESSFULLY INSTALLED: valgrind" || echo "FAILED TO INSTALL: valgrind"
-    apt-get install -y autoconf &> /dev/null && echo "SUCCESSFULLY INSTALLED: autoconf" || echo "FAILED TO INSTALL: autoconf"
-    apt-get install -y emacs &> /dev/null && echo "SUCCESSFULLY INSTALLED: emacs" || echo "FAILED TO INSTALL: emacs"
+    try "apt-get update"
+    for package in wget git gcc valgrind emacs autoconf;
+    do
+        try "apt-get install -y $package"
+    done
 
-    echo Installing dot files...
+    echo Installing dot files.
     dotdir=/home/vagrant/cs50-dev/dotfiles/virtualbox
     for dot in $dotdir/*; do
     	dotfile=.${dot##*/}
-        echo " $dotfile"
     	dotlink=/home/vagrant/$dotfile
-        rm -f $dotlink
-    	ln -s $dot $dotlink
+	rm -f $dotlink
+	try "ln -s $dot $dotlink"
     done
 
-    echo Protecting your .ssh keys...
-    chmod 600 .ssh/id_rsa .ssh/id_rsa.pub
-
     echo "Do all your work in ~/cs50-dev/" > /home/vagrant/DO-NO-WORK-HERE
-    echo Provision successful.
+
+    if $success
+    then echo "Provision succeeded.";
+    else echo "PROVISION FAILED; log in and review $log for details.";
+    fi
   SHELL
 
-#  config.trigger.before :destroy do |trigger|
-#    trigger.warn = "Backing up home folder to cs50-dev/home-backup.tgz"
-#    trigger.run_remote = {
-#      inline: "cd /home/vagrant && tar --absolute-names --exclude './cs50-dev' -zcvf /vagrant/home-backup.tgz . || exit 0"
-#    }
-#  end
 end
