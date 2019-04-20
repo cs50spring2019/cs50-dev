@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
   # Don't check for updates on every 'vagrant up'
   config.vm.box_check_update = false
   # Boot timeout defaults to 5 minutes (300 seconds). Set to 30 minutes (1800) for those with slower computers
-  config.vm.boot_timout = 1800
+  config.vm.boot_timeout = 1800
 
   # Upload user's ssh key into box so it can be used for GitHub
   ssh_key_path = "~/.ssh/"
