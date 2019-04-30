@@ -1,0 +1,15 @@
+# WARNING: This file will be overwritten if CS50 vagrant is reprovisioned.
+# If you prefer something else, create ~/.bashrc_logout.custom
+
+# This file is sourced by bash at the close of every login shell.  For
+# more info type `man bash'.
+
+# Source Wayne's master file
+source /usr/local/lib/templates/master.bash_logout
+
+# If we have a custom file, source that as well
+if [ -r ~/.bashrc_logout.custom ]; then
+    source ~/.bashrc_logout.custom
+fi
+
+# --------------------------------------------------------------------
