@@ -6,7 +6,8 @@ dotdir=~/cs50-dev/dotfiles/csservers
 for dot in $dotdir/*; do
     dotfile=.${dot##*/}
     dotpath=~/$dotfile
-    try "cp $dot $dotpath"
+    #cp $dot $dotpath
+    echo "copy command: cp $dot $dotpath"
 done
 
 # Configure dotfiles
