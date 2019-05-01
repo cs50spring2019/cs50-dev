@@ -10,7 +10,11 @@ for dot in $dotdir/*; do
     cp $dot $dotpath
 done
 
-# Configure dotfiles
+# Ignore global git ignore
 git config --global core.excludesfile ~/.gitignore_global
+
+# Source our new bashrc
+source ~/.bashrc
+
 echo ""
 echo "bootstrap complete"
