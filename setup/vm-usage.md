@@ -1,8 +1,17 @@
 #### Table of Contents
+- [Updating Your VM](#updating-your-vm)
 - [Downloading Lab Assignments](#downloading-lab-assignments)
 - [Using The Virtual Machine](#using-the-virtual-machine)
 - [Writing Code](#writing-code)
 - [Compiling and Executing Code](#compiling-and-executing-code)
+# Updating Your VM
+From time to time we may need to update the packages or configuration of your VMs. To do so, we will update the Vagrant file in the `cs50-dev` repository. To pull these changes and apply them to your VM, follow the steps below.
+
+1. Run `git status` inside of your `cs50-dev` repository. If it shows that you have modified *any* of the files in the `cs50-dev` repository, you should use `git checkout *filenames*` to revert them back to their previous commit versions
+2. Run `git pull`. You should see updates to the `Vagrantfile` (if there are any)
+3. Stop your VM using the `vagrant halt` command
+4. Apply the changes in the Vagrantfile to your VM using the command `vagrant up --provision`
+5. Use `vagrant ssh` to log into the machine after the provision has completed
 # Downloading Lab Assignments
 You will be using your VM to compile and test your lab assignments. Assignments will be handed out and managed via GitHub classroom. For every assignment, you will be sent a link for GitHub classroom that will instantiate a new repository for you. You will use these repositories to backup and turn in code. The process for cloning a new assignment repo to your computer is detailed below.
 
